@@ -425,11 +425,25 @@ if(isset($_GET['pid']) && isset($_GET['price']) && isset($_GET['amount'])){
    <div id="menu4" class="tab-pane fade">
    <label class="control-label col-sm-1" for="action">Action</label>
     <div class="col-sm-5">
+     <script> 
+        $(function(){
+          //全部選擇隱藏
+          $('div[id^="tab_"]').hide();
+          $('#slt1').change(function(){
+            let sltValue=$(this).val();
+            console.log(sltValue);
+    
+            $('div[id^="tab_"]').hide();
+              //指定選擇顯示
+              $(sltValue).show();
+        });
+     });
+     </script>              
       <select class="form-control" id="sel1" name="sel1">
-       <option>All</option>
-       <option>Payment</option>
-       <option>Receive</option>
-       <option>Recharge</option>
+       <option value="#tab_0">All</option>
+       <option value="#tab_1">Payment</option>
+       <option value="#tab_2">Receive</option>
+       <option value="#tab_3">Recharge</option>
       </select>
     </div>
    </div>
